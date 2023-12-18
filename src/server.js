@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3000;
 
 // DATA
-
+// importuot people masyva
 let users = [
   {
     id: 1,
@@ -38,6 +38,13 @@ app.use(express.json()); // for parsing application/json
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
+
+// PEOPLE ROUTES
+// GET - /api/people - get all
+// GET - /api/people/1 - get single
+// DELETE - /api/people/1 - Delete single
+// PUT - /api/people/1 - Update person
+// POST - /api/people - Add new person
 
 // GET /api/users - grazina visus vartotojus
 app.get('/api/users', (req, res) => {
