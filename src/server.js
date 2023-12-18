@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 
 // DATA
-const users = [
+let users = [
   { id: 1, name: 'Serbentautas', town: 'Vilnius', isDeleted: false },
   { id: 2, name: 'Lenteja', town: 'Kaunas', isDeleted: false },
   { id: 3, name: 'James', town: 'London', isDeleted: false },
@@ -40,6 +40,11 @@ app.get('/api/users/:userId', (req, res) => {
   res.json(found);
 });
 // DELETE /api/users/1 - deletes user
+app.delete('/api/users/:userId', (req, res) => {
+  // atfiltruoti users ir grazinti viska isskyrus ta kurio id === userId
+  users = users.filter(() => {});
+  res.json('deleting user');
+});
 
 // Run the server
 app.listen(PORT, () =>
