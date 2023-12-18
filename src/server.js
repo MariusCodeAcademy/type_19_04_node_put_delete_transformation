@@ -1,25 +1,40 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+
 const app = express();
 
 const PORT = 3000;
 
 // DATA
 
-const num = 5;
-
 let users = [
-  { id: 1, name: 'Serbentautas', town: 'Vilnius', isDeleted: false },
-  { id: 2, name: 'Lenteja', town: 'Kaunas', isDeleted: false },
-  { id: 3, name: 'James', town: 'London', isDeleted: false },
+  {
+    id: 1,
+    name: 'Serbentautas',
+    town: 'Vilnius',
+    isDeleted: false,
+  },
+  {
+    id: 2,
+    name: 'Lenteja',
+    town: 'Kaunas',
+    isDeleted: false,
+  },
+  {
+    id: 3,
+    name: 'James',
+    town: 'London',
+    isDeleted: false,
+  },
 ];
 
 // Middleware
 app.use(morgan('dev'));
+app.use(cors());
 
 // routes
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
@@ -52,7 +67,7 @@ app.delete('/api/users/:userId', (req, res) => {
 });
 
 // Run the server
-app.listen(PORT, () =>
-  console.log(`Server runing on http://localhost:${PORT}`)
-);
+app.listen(PORT, () => {
+  console.log(`Server runing on http://localhost:${PORT}`);
+});
 // app.listen(PORT);
