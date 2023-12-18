@@ -5,7 +5,7 @@ GET http://localhost:3000/api/users
 GET http://localhost:3000/api/users/10
 
 ### delete user :userId
-DELETE http://localhost:3000/api/users/3
+DELETE http://localhost:3000/api/users/1
 
 ### update :userId
 PUT http://localhost:3000/api/users/2

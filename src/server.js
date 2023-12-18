@@ -56,8 +56,11 @@ app.get('/api/people/drivers', (req, res) => {
 
 // GET /api/users - grazina visus vartotojus
 app.get('/api/users', (req, res) => {
-  res.json(users);
+  // atvaizduoti tik neistrintus
+  const notDeletedUsers = users.filter((uObj) => uObj.isDeleted === false);
+  res.json(notDeletedUsers);
 });
+// GET /api/users/archive - grazina visus istrintus vartotojus
 
 // GET /api/users/4 - gets user
 app.get('/api/users/:userId', (req, res) => {
@@ -77,9 +80,18 @@ app.get('/api/users/:userId', (req, res) => {
 app.delete('/api/users/:userId', (req, res) => {
   const userId = +req.params.userId;
   // atfiltruoti users ir grazinti viska isskyrus ta kurio id === userId
-  users = users.filter((uObj) => uObj.id !== userId);
-  console.log('users ===', users);
-  res.json(users);
+  const found = users.find((uObj) => uObj.id === userId);
+  // jei neradom
+  if (found === undefined) {
+    res.status(404).json({
+      msg: `user not found with id ${userId}`,
+    });
+    return;
+  }
+  // radom - pakeisti isDeleted i true
+  found.isDeleted = true;
+
+  res.json(found);
 });
 
 // PUT /api/users/1 - nusiusto ka atnaujinti - grazinta atnaujinta objekta
