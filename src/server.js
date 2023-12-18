@@ -6,6 +6,9 @@ const app = express();
 const PORT = 3000;
 
 // DATA
+
+const num = 5;
+
 let users = [
   { id: 1, name: 'Serbentautas', town: 'Vilnius', isDeleted: false },
   { id: 2, name: 'Lenteja', town: 'Kaunas', isDeleted: false },
@@ -41,9 +44,11 @@ app.get('/api/users/:userId', (req, res) => {
 });
 // DELETE /api/users/1 - deletes user
 app.delete('/api/users/:userId', (req, res) => {
+  const userId = +req.params.userId;
   // atfiltruoti users ir grazinti viska isskyrus ta kurio id === userId
-  users = users.filter(() => {});
-  res.json('deleting user');
+  users = users.filter((uObj) => uObj.id !== userId);
+  console.log('users ===', users);
+  res.json(users);
 });
 
 // Run the server
