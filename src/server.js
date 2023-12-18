@@ -32,6 +32,7 @@ let users = [
 // Middleware
 app.use(morgan('dev'));
 app.use(cors());
+app.use(express.json()); // for parsing application/json
 
 // routes
 app.get('/', (req, res) => {
@@ -64,6 +65,29 @@ app.delete('/api/users/:userId', (req, res) => {
   users = users.filter((uObj) => uObj.id !== userId);
   console.log('users ===', users);
   res.json(users);
+});
+
+// PUT /api/users/1 - nusiusto ka atnaujinti - grazinta atnaujinta objekta
+app.put('/api/users/:userId', (req, res) => {
+  // atnaujintas objektas atsiustas gyvena?
+  console.log('req.body ===', req.body);
+
+  // surasti useri su id === userId
+  const userId = +req.params.userId;
+  // surasti obj su id === userId
+  const found = users.find((uObj) => uObj.id === userId);
+  // jei neradom
+  if (found === undefined) {
+    res.status(404).json({
+      msg: `user not found with id ${userId}`,
+    });
+    return;
+  }
+  // atnaujinti jo savybes su gautom is request
+  const { town, name } = req.body;
+  found.name = name;
+  found.town = town;
+  res.json(found);
 });
 
 // Run the server

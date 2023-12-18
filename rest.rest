@@ -7,4 +7,12 @@ GET http://localhost:3000/api/users/10
 ### delete user :userId
 DELETE http://localhost:3000/api/users/3
 
+### update :userId
+PUT http://localhost:3000/api/users/2
+Content-Type: application/json
+
+{
+  "name": "Jane Dow",
+  "town": "Klaipeda"
+}
 ###
