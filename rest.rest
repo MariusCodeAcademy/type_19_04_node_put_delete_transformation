@@ -15,4 +15,7 @@ Content-Type: application/json
   "name": "Jane Dow",
   "town": "Klaipeda"
 }
-###
+
+### PEOPLE
+
+GET http://localhost:3000/api/people/drivers

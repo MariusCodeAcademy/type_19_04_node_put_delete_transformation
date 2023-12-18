@@ -68,3 +68,4 @@ const people = [
 ];
 
 // exportuot
+module.exports = people;

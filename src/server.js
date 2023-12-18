@@ -40,6 +40,14 @@ app.get('/', (req, res) => {
 });
 
 // PEOPLE ROUTES
+const people = require('./db/people');
+
+// console.log('people ===', people);
+// GET - /api/people/drivers
+app.get('/api/people/drivers', (req, res) => {
+  const drivers = people.filter((pObj) => pObj.hasCar === true);
+  res.json(drivers);
+});
 // GET - /api/people - get all
 // GET - /api/people/1 - get single
 // DELETE - /api/people/1 - Delete single
