@@ -3,18 +3,24 @@
     "id": 1,
     "name": "Serbentautas",
     "town": "Vilnius",
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": 2,
     "name": "Lenteja",
     "town": "Kaunas",
-    "isDeleted": false
+    "isDeleted": true
   },
   {
     "id": 3,
     "name": "James",
     "town": "London",
+    "isDeleted": false
+  },
+  {
+    "id": "2212d73b-831f-4c2d-a730-d02400b3ec03",
+    "name": "Jane Dow",
+    "town": "Klaipeda",
     "isDeleted": false
   }
 ]

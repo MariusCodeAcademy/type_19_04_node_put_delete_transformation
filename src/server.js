@@ -36,8 +36,8 @@ const { v4: uuidv4 } = require('uuid');
 
 const dbPath = path.join(__dirname, 'db', 'users.json');
 
-const writeUsers = (users) => {
-  const usersJSON = JSON.stringify(users, null, 2);
+const writeUsers = (usersArr) => {
+  const usersJSON = JSON.stringify(usersArr, null, 2);
   fs.writeFileSync(dbPath, usersJSON);
 };
 
@@ -49,7 +49,7 @@ const readUsers = () => {
 //
 const users = readUsers();
 
-writeUsers(users);
+// writeUsers(users);
 
 // Middleware
 app.use(morgan('dev'));
