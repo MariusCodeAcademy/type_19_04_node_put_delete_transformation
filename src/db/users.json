@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Serbentautas",
+    "town": "Vilnius",
+    "isDeleted": true
+  },
+  {
+    "id": 2,
+    "name": "Lenteja",
+    "town": "Kaunas",
+    "isDeleted": false
+  },
+  {
+    "id": 3,
+    "name": "James",
+    "town": "London",
+    "isDeleted": false
+  }
+]

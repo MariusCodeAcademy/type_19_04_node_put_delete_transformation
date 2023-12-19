@@ -7,7 +7,7 @@
     "start": "node src/server.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js --ignore src/db/"
   },
   "keywords": [],
   "author": "Marius K.",
@@ -15,7 +15,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
